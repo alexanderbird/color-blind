@@ -4,11 +4,12 @@ export class ColorComponent {
   }
 
   toString() {
-    return `00${(this._absoluteIntensity).toString(16)}`.slice(-2).toUpperCase();
+    const digitsLeftOfPeriod = this._absoluteIntensity.toString(16).replace(/\..*$/, '');
+    return `00${digitsLeftOfPeriod}`.slice(-2).toUpperCase();
   }
 
   get intensity() {
-    return this._absoluteIntensity / 255;
+    return this._absoluteIntensity / 0xFF;
   }
 
   static fromHexString(hexCode) {

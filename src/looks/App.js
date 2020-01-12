@@ -1,4 +1,4 @@
-import { useRef, useState } from 'preact/hooks';
+import { useRef, useState, useEffect } from 'preact/hooks';
 import { Color } from '../logic/Color';
 import { LineChart } from './LineChart';
 
@@ -8,12 +8,16 @@ export const App = () => {
   function onChange() {
     setColor(Color.fromHexString(hexInput.current.value));
   }
-
+  
   function randomColor() {
     const newColor = Color.random();
-    hexInput.current.value = newColor.toHexString();
+    hexInput.current.value = newColor.toString();
     setColor(newColor);
   }
+
+  useEffect(randomColor, []);
+
+  const hexString = number => `00${(number * 0xFF).toString(16).toUpperCase().replace(/\..*/, '')}`.slice(-2);
   return (
     <div>
       <input ref={hexInput} onKeyUp={onChange} type='text' />
@@ -23,9 +27,9 @@ export const App = () => {
         green={color.getGreen()}
         blue={color.getBlue()}
         />
-      <div>Red: {color.getRed()}</div>
-      <div>Green: {color.getGreen()}</div>
-      <div>Blue: {color.getBlue()}</div>
+      <div>Red: {hexString(color.getRed())}</div>
+      <div>Green: {hexString(color.getGreen())}</div>
+      <div>Blue: {hexString(color.getBlue())}</div>
       <div>Saturation: {color.getSaturation()}</div>
       <div>Lightness: {color.getLightness()}</div>
     </div>

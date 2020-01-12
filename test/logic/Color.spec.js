@@ -3,7 +3,7 @@ import { Color } from '../../src/logic/Color';
 describe('Color', () => {
   describe('.default', () => {
     it('returns a Color of value 000000', () => {
-      expect(Color.default().toHexString()).toEqual('000000');
+      expect(Color.default().toString()).toEqual('000000');
     });
   });
 
@@ -19,27 +19,39 @@ describe('Color', () => {
       ['F'     , 'F00000'],
       [''      , '000000'],
     ].forEach(([ input, expected ]) => it(`returns a Color object with color ${expected} when given ${input}`, () => {
-      expect(Color.fromHexString(input).toHexString()).toEqual(expected);
+      expect(Color.fromHexString(input).toString()).toEqual(expected);
     }));
   });
 
   describe('.random', () => {
     it('returns a random red value', () => {
-      const randoms = [0.4, 0, 0]
+      const randoms = [0.4, 0, 0];
       Math.random = () => randoms.shift();
-      expect(Color.random().toHexString()).toEqual('660000');
+      expect(Color.random().toString()).toEqual('660000');
     });
 
     it('returns a random green value', () => {
-      const randoms = [0, 0.8, 0]
+      const randoms = [0, 0.8, 0];
       Math.random = () => randoms.shift();
-      expect(Color.random().toHexString()).toEqual('00CC00');
+      expect(Color.random().toString()).toEqual('00CC00');
     });
 
     it('returns a random blue value', () => {
-      const randoms = [0, 0, 0.6]
+      const randoms = [0, 0, 0.6];
       Math.random = () => randoms.shift();
-      expect(Color.random().toHexString()).toEqual('000099');
+      expect(Color.random().toString()).toEqual('000099');
+    });
+
+    it('does not blow up when producing colors with many decimals', () => {
+      const randoms = [0.7, 0.1, 0.5];
+      Math.random = () => randoms.shift();
+      expect(Color.random().toString()).toEqual('B2197F');
+    });
+
+    it('does not blow up when producing colors with very small values', () => {
+      const randoms = [0.01, 0.02, 0.03];
+      Math.random = () => randoms.shift();
+      expect(Color.random().toString()).toEqual('020507');
     });
   });
 

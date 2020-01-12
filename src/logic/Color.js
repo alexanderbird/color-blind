@@ -20,7 +20,6 @@ export class Color {
   }
 
   static random() {
-    
     return new Color(
       new ColorComponent(Math.random() * 0xFF),
       new ColorComponent(Math.random() * 0xFF),
@@ -34,7 +33,7 @@ export class Color {
     this._blue = blue;
   }
 
-  toHexString() {
+  toString() {
     return `${this._red}${this._green}${this._blue}`;
   }
 
