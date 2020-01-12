@@ -25,8 +25,15 @@ describe('Color', () => {
 
   describe('.random', () => {
     it('returns a random red value', () => {
-      Math.random = () => 0.4;
+      const randoms = [0.4, 0, 0]
+      Math.random = () => randoms.shift();
       expect(Color.random().toHexString()).toEqual('660000');
+    });
+
+    it('returns a random green value', () => {
+      const randoms = [0, 0.8, 0]
+      Math.random = () => randoms.shift();
+      expect(Color.random().toHexString()).toEqual('00CC00');
     });
   });
 
