@@ -24,7 +24,7 @@ export class Color {
     return new Color(
       new ColorComponent(Math.random() * 0xFF),
       new ColorComponent(Math.random() * 0xFF),
-      ColorComponent.fromHexString('00'),
+      new ColorComponent(Math.random() * 0xFF)
     )
   }
 

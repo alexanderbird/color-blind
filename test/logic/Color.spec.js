@@ -35,6 +35,12 @@ describe('Color', () => {
       Math.random = () => randoms.shift();
       expect(Color.random().toHexString()).toEqual('00CC00');
     });
+
+    it('returns a random blue value', () => {
+      const randoms = [0, 0, 0.6]
+      Math.random = () => randoms.shift();
+      expect(Color.random().toHexString()).toEqual('000099');
+    });
   });
 
   describe('#getRed', () => {
