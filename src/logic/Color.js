@@ -21,9 +21,9 @@ export class Color {
 
   static random() {
     return new Color(
-      ColorComponent.fromHexString('4F'),
-      ColorComponent.fromHexString('76'),
-      ColorComponent.fromHexString('20'),
+      ColorComponent.fromHexString('88'),
+      ColorComponent.fromHexString('00'),
+      ColorComponent.fromHexString('00'),
     )
   }
 

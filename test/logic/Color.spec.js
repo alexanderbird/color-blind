@@ -6,6 +6,7 @@ describe('Color', () => {
       expect(Color.default().toHexString()).toEqual('000000');
     });
   });
+
   describe('.fromHexString', () => {
     [
       ['AABBCC', 'AABBCC'],
@@ -20,6 +21,13 @@ describe('Color', () => {
     ].forEach(([ input, expected ]) => it(`returns a Color object with color ${expected} when given ${input}`, () => {
       expect(Color.fromHexString(input).toHexString()).toEqual(expected);
     }));
+  });
+
+  describe('.random', () => {
+    it('returns a random red value', () => {
+      Math.random = () => 0.5;
+      expect(Color.random().toHexString()).toEqual('880000');
+    });
   });
 
   describe('#getRed', () => {
