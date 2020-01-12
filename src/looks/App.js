@@ -4,7 +4,7 @@ import { LineChart } from './LineChart';
 
 export const App = () => {
   const hexInput = useRef(null);
-  const [color, setColor] = useState(Color.fromHexString('FFFFFF'));
+  const [color, setColor] = useState(Color.default());
   function onChange() {
     setColor(Color.fromHexString(hexInput.current.value));
   }

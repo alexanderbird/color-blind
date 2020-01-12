@@ -1,6 +1,11 @@
 import { Color } from '../../src/logic/Color';
 
 describe('Color', () => {
+  describe('.default', () => {
+    it('returns a Color of value 000000', () => {
+      expect(Color.default().toHexString()).toEqual('000000');
+    });
+  });
   describe('.fromHexString', () => {
     [
       ['AABBCC', 'AABBCC'],

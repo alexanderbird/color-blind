@@ -15,6 +15,10 @@ export class Color {
     );
   }
 
+  static default() {
+    return Color.fromHexString('');
+  }
+
   static random() {
     return new Color(
       ColorComponent.fromHexString('4F'),
