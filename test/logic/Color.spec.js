@@ -25,8 +25,8 @@ describe('Color', () => {
 
   describe('.random', () => {
     it('returns a random red value', () => {
-      Math.random = () => 0.5;
-      expect(Color.random().toHexString()).toEqual('880000');
+      Math.random = () => 0.4;
+      expect(Color.random().toHexString()).toEqual('660000');
     });
   });
 

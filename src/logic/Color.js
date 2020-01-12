@@ -20,8 +20,9 @@ export class Color {
   }
 
   static random() {
+    
     return new Color(
-      ColorComponent.fromHexString('88'),
+      new ColorComponent(Math.random() * 0xFF),
       ColorComponent.fromHexString('00'),
       ColorComponent.fromHexString('00'),
     )
