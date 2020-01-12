@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'preact/hooks';
 import { Color } from '../logic/Color';
 import { LineChart } from './LineChart';
+import { ColorWheel } from './ColorWheel';
 
 export const App = () => {
   const hexInput = useRef(null);
@@ -27,6 +28,7 @@ export const App = () => {
         green={color.getGreen()}
         blue={color.getBlue()}
         />
+      <ColorWheel />
       <div>Red: {hexString(color.getRed())}</div>
       <div>Green: {hexString(color.getGreen())}</div>
       <div>Blue: {hexString(color.getBlue())}</div>

@@ -1,0 +1,44 @@
+.color-wheel {
+  --width-px: 100px;
+  --width-viewbox: 100;
+  --radius-viewbox: 25;
+  --radius-px: calc(var(--width-px) * (var(--radius-viewbox) / var(--width-viewbox)));
+  width: var(--width-px);
+  --color-red: #FF0000;
+  --color-orange: #FF6600;
+  --color-yellow: #FFFF00;
+  --color-chartreuse: #66FF00;
+  --color-green: #00FF00;
+  --color-spring-green: #00FF66;
+  --color-cyan: #00FFFF;
+  --color-azure: #0066FF;
+  --color-blue: #0000FF;
+  --color-purple: #6600FF;
+  --color-magenta: #FF00FF;
+  --color-rose: #FF0066;
+  fill: transparent;
+  --pi: 3.1415926;
+  --circumference: calc(2 * var(--radius-px) * var(--pi));
+  --one-twelfth: calc(var(--circumference) / 12);
+  --eleven-twelfths: calc(var(--circumference) - var(--one-twelfth));
+  stroke-width: 50;
+  stroke-dasharray: var(--one-twelfth), var(--eleven-twelfths);
+  transform: scaleX(-1);
+}
+
+.color-wheel circle {
+  stroke-dashoffset: calc((var(--color-index) + 2.5) * var(--one-twelfth));
+}
+
+.color-wheel circle:nth-of-type(1)  { --color-index: 1;  stroke: var(--color-red);          }
+.color-wheel circle:nth-of-type(2)  { --color-index: 2;  stroke: var(--color-orange);       }
+.color-wheel circle:nth-of-type(3)  { --color-index: 3;  stroke: var(--color-yellow);       }
+.color-wheel circle:nth-of-type(4)  { --color-index: 4;  stroke: var(--color-chartreuse);   }
+.color-wheel circle:nth-of-type(5)  { --color-index: 5;  stroke: var(--color-green);        }
+.color-wheel circle:nth-of-type(6)  { --color-index: 6;  stroke: var(--color-spring-green); }
+.color-wheel circle:nth-of-type(7)  { --color-index: 7;  stroke: var(--color-cyan);         }
+.color-wheel circle:nth-of-type(8)  { --color-index: 8;  stroke: var(--color-azure);        }
+.color-wheel circle:nth-of-type(9)  { --color-index: 9;  stroke: var(--color-blue);         }
+.color-wheel circle:nth-of-type(10) { --color-index: 10; stroke: var(--color-purple);       }
+.color-wheel circle:nth-of-type(11) { --color-index: 11; stroke: var(--color-magenta);      }
+.color-wheel circle:nth-of-type(12) { --color-index: 12; stroke: var(--color-rose);         }
