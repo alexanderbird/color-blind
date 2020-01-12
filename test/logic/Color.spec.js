@@ -3,11 +3,17 @@ import { Color } from '../../src/logic/Color';
 describe('Color', () => {
   describe('.fromHexString', () => {
     [
-      'AABBCC',
-      '000000',
-      'FFFFFF'
-    ].forEach(hex => it(`returns a Color object matching the hex code when given ${hex}`, () => {
-      expect(Color.fromHexString(hex).toHexString()).toEqual(hex);
+      ['AABBCC', 'AABBCC'],
+      ['000000', '000000'],
+      ['FFFFFF', 'FFFFFF'],
+      ['FFFFF' , 'FFFFF0'],
+      ['FFFF'  , 'FFFF00'],
+      ['FFF'   , 'FFF000'],
+      ['FF'    , 'FF0000'],
+      ['F'     , 'F00000'],
+      [''      , '000000'],
+    ].forEach(([ input, expected ]) => it(`returns a Color object with color ${expected} when given ${input}`, () => {
+      expect(Color.fromHexString(input).toHexString()).toEqual(expected);
     }));
   });
 

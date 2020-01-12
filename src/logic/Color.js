@@ -7,12 +7,20 @@ import {
 
 export class Color {
   static fromHexString(hexCode) {
-    const [ red, green, blue ] = chunkIntoCharacterPairs(hexCode);
+    const [ red, green, blue ] = chunkIntoCharacterPairs(hexCode + '000000');
     return new Color(
       ColorComponent.fromHexString(red),
       ColorComponent.fromHexString(green),
       ColorComponent.fromHexString(blue),
     );
+  }
+
+  static random() {
+    return new Color(
+      ColorComponent.fromHexString('4F'),
+      ColorComponent.fromHexString('76'),
+      ColorComponent.fromHexString('20'),
+    )
   }
 
   constructor(red, green, blue) {
