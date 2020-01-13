@@ -18,7 +18,6 @@ export const App = () => {
 
   useEffect(randomColor, []);
 
-  const hexString = number => `00${(number * 0xFF).toString(16).toUpperCase().replace(/\..*/, '')}`.slice(-2);
   return (
     <div>
       <input ref={hexInput} onKeyUp={onChange} type='text' />
@@ -29,9 +28,6 @@ export const App = () => {
         blue={color.getBlue()}
         />
       <ColorWheel hue={color.getHue()}/>
-      <div>Red: {hexString(color.getRed())}</div>
-      <div>Green: {hexString(color.getGreen())}</div>
-      <div>Blue: {hexString(color.getBlue())}</div>
       <div>Saturation: {color.getSaturation()}</div>
       <div>Lightness: {color.getLightness()}</div>
       <div>Hue: {color.getHue().name}</div>
