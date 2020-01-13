@@ -8,7 +8,7 @@ export class Lightness {
   }
 
   toString() {
-    const names = [ 'Light', 'Middle', 'Dark' ];
+    const names = [ 'Dark', 'Middle', 'Light' ];
     const index = Math.floor(this._value * names.length);
     return names[Math.max(0, Math.min(names.length - 1, index))];
   }

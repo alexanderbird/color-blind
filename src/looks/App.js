@@ -32,15 +32,18 @@ export const App = () => {
           blue={color.getBlue()}
           />
       </div>
-      <div class='app__hue app__widget'>
-        <div>{color.getHue().name}</div>
-        <ColorWheel hue={color.getHue()}/>
+      <div class='app__lightness app__widget'>
+        <div>{color.getLightness().toString()}</div>
       </div>
       <div class='app__saturation app__widget'>
         <div>{color.getSaturation().toString()}</div>
       </div>
-      <div class='app__lightness app__widget'>
-        <div>{color.getLightness().toString()}</div>
+      <div class='app__hue app__widget'>
+        <div>{color.getHue().name}</div>
+        <ColorWheel hue={color.getHue()}/>
+      </div>
+      <div class='app__color app__widget'>
+        <div class='app__color-swath' style={`--color: #${color.toString()};`} />
       </div>
     </div>
   );
