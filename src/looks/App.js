@@ -40,7 +40,7 @@ export const App = () => {
         <div>Saturation: {color.getSaturation()}</div>
       </div>
       <div class='app__lightness app__widget'>
-        <div>Lightness: {color.getLightness()}</div>
+        <div>{color.getLightness().toString()}</div>
       </div>
     </div>
   );

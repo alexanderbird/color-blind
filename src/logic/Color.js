@@ -1,5 +1,6 @@
 import { ColorComponent } from './ColorComponent';
 import { Hue } from './Hue';
+import { Lightness } from './Lightness';
 import { chunkIntoCharacterPairs } from './chunkIntoCharacterPairs';
 import {
   average,
@@ -51,7 +52,7 @@ export class Color {
   }
 
   getLightness() {
-    return average(this._intensities);
+    return new Lightness(average(this._intensities));
   }
 
   getSaturation() {
