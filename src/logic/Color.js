@@ -1,4 +1,5 @@
 import { ColorComponent } from './ColorComponent';
+import { Hue } from './Hue';
 import { chunkIntoCharacterPairs } from './chunkIntoCharacterPairs';
 import {
   average,
@@ -55,6 +56,21 @@ export class Color {
 
   getSaturation() {
     return range(this._intensities);
+  }
+
+  getHue() {
+    const [ first, second, third ] = [
+      { value: this.getRed(), hue: Hue.red },
+      { value: this.getGreen(), hue: Hue.green },
+      { value: this.getBlue(), hue: Hue.blue }
+    ].sort((x, y) => y.value - x.value);
+    if(first.value === second.value) {
+      return first.hue.mix(second.hue);
+    }
+    if(second.value === third.value) {
+      return first.hue;
+    }
+    return first.hue.mix(second.hue).mix(first.hue);
   }
 
   get _colors() {

@@ -34,6 +34,7 @@ export const App = () => {
       <div>Blue: {hexString(color.getBlue())}</div>
       <div>Saturation: {color.getSaturation()}</div>
       <div>Lightness: {color.getLightness()}</div>
+      <div>Hue: {color.getHue().name}</div>
     </div>
   );
 }

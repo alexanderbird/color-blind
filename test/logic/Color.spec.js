@@ -1,4 +1,5 @@
 import { Color } from '../../src/logic/Color';
+import { Hue } from '../../src/logic/Hue';
 
 describe('Color', () => {
   describe('.default', () => {
@@ -91,6 +92,25 @@ describe('Color', () => {
       ['0000FF', 1],
     ].forEach(([ hex, blue ]) => it(`returns ${blue} for hex code ${hex}`, () => {
       expect(Color.fromHexString(hex).getBlue()).toBeCloseTo(blue, 3);
+    }));
+  });
+
+  describe('#getHue', () => {
+    [
+      ['FF0000', Hue.red],
+      ['FF6600', Hue.orange],
+      ['FFFF00', Hue.yellow],
+      ['66FF00', Hue.chartreuse],
+      ['00FF00', Hue.green],
+      ['00FF66', Hue.springGreen],
+      ['00FFFF', Hue.cyan],
+      ['0066FF', Hue.azure],
+      ['0000FF', Hue.blue],
+      ['6600FF', Hue.purple],
+      ['FF00FF', Hue.magenta],
+      ['FF0066', Hue.rose],
+    ].forEach(([ hex, hue ]) => it(`returns ${hue} for hex code ${hex}`, () => {
+      expect(Color.fromHexString(hex).getHue()).toEqual(hue);
     }));
   });
 
