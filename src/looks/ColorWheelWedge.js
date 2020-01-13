@@ -5,5 +5,5 @@ const className = ({ active, index }) => [
 ].join(' ');
 
 export const ColorWheelWedge = ({ active, index }) => (
-  <circle cx="60" cy="60" r="25" class={ className({ active, index }) } />
+  <circle cx="70" cy="70" r="25" class={ className({ active, index }) } />
 );

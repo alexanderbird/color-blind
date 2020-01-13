@@ -3,7 +3,7 @@
   --width-viewbox: 100;
   --radius-viewbox: 25;
   --radius-px: calc(var(--width-px) * (var(--radius-viewbox) / var(--width-viewbox)));
-  width: 120px;
+  width: 140px;
   --color-red: #FF0000;
   --color-orange: #FF6600;
   --color-yellow: #FFFF00;
