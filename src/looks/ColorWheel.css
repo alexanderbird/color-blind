@@ -26,23 +26,23 @@
   transform: scaleX(-1);
 }
 
-.color-wheel circle {
+.color-wheel__wedge {
   stroke-dashoffset: calc((var(--color-index) + 2.5) * var(--one-twelfth));
 }
 
-.color-wheel__color--active {
+.color-wheel__wedge--active {
   stroke-width: 75;
 }
 
-.color-wheel circle:nth-of-type(1)  { --color-index: 1;  stroke: var(--color-red);          }
-.color-wheel circle:nth-of-type(2)  { --color-index: 2;  stroke: var(--color-orange);       }
-.color-wheel circle:nth-of-type(3)  { --color-index: 3;  stroke: var(--color-yellow);       }
-.color-wheel circle:nth-of-type(4)  { --color-index: 4;  stroke: var(--color-chartreuse);   }
-.color-wheel circle:nth-of-type(5)  { --color-index: 5;  stroke: var(--color-green);        }
-.color-wheel circle:nth-of-type(6)  { --color-index: 6;  stroke: var(--color-spring-green); }
-.color-wheel circle:nth-of-type(7)  { --color-index: 7;  stroke: var(--color-cyan);         }
-.color-wheel circle:nth-of-type(8)  { --color-index: 8;  stroke: var(--color-azure);        }
-.color-wheel circle:nth-of-type(9)  { --color-index: 9;  stroke: var(--color-blue);         }
-.color-wheel circle:nth-of-type(10) { --color-index: 10; stroke: var(--color-purple);       }
-.color-wheel circle:nth-of-type(11) { --color-index: 11; stroke: var(--color-magenta);      }
-.color-wheel circle:nth-of-type(12) { --color-index: 12; stroke: var(--color-rose);         }
+.color-wheel__wedge--1  { --color-index: 1;  stroke: var(--color-red);          }
+.color-wheel__wedge--2  { --color-index: 2;  stroke: var(--color-orange);       }
+.color-wheel__wedge--3  { --color-index: 3;  stroke: var(--color-yellow);       }
+.color-wheel__wedge--4  { --color-index: 4;  stroke: var(--color-chartreuse);   }
+.color-wheel__wedge--5  { --color-index: 5;  stroke: var(--color-green);        }
+.color-wheel__wedge--6  { --color-index: 6;  stroke: var(--color-spring-green); }
+.color-wheel__wedge--7  { --color-index: 7;  stroke: var(--color-cyan);         }
+.color-wheel__wedge--8  { --color-index: 8;  stroke: var(--color-azure);        }
+.color-wheel__wedge--9  { --color-index: 9;  stroke: var(--color-blue);         }
+.color-wheel__wedge--10 { --color-index: 10; stroke: var(--color-purple);       }
+.color-wheel__wedge--11 { --color-index: 11; stroke: var(--color-magenta);      }
+.color-wheel__wedge--12 { --color-index: 12; stroke: var(--color-rose);         }
