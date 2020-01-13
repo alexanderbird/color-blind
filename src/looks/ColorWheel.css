@@ -30,6 +30,10 @@
   stroke-dashoffset: calc((var(--color-index) + 2.5) * var(--one-twelfth));
 }
 
+.color-wheel__wedge:hover:not(.color-wheel__wedge--active) {
+  stroke-width: 55;
+}
+
 .color-wheel__wedge--active {
   stroke-width: 75;
 }

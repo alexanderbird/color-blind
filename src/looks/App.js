@@ -40,7 +40,7 @@ export const App = () => {
       </div>
       <div class='app__hue app__widget'>
         <div>{color.getHue().name}</div>
-        <ColorWheel hue={color.getHue()}/>
+        <ColorWheel hue={color.getHue()} onClick={i => console.log('TODO: change the hue to ' + i)}/>
       </div>
       <div class='app__color app__widget'>
         <div class='app__color-swath' style={`--color: #${color.toString()};`} />

@@ -4,6 +4,6 @@ const className = ({ active, index }) => [
   active ? 'color-wheel__wedge--active' : ''
 ].join(' ');
 
-export const ColorWheelWedge = ({ active, index }) => (
-  <circle cx="70" cy="70" r="25" class={ className({ active, index }) } />
+export const ColorWheelWedge = ({ active, index, onClick }) => (
+  <circle cx="70" cy="70" r="25" class={ className({ active, index }) } onClick={onClick}/>
 );
