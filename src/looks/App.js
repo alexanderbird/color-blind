@@ -28,7 +28,7 @@ export const App = () => {
         green={color.getGreen()}
         blue={color.getBlue()}
         />
-      <ColorWheel />
+      <ColorWheel hue={color.getHue()}/>
       <div>Red: {hexString(color.getRed())}</div>
       <div>Green: {hexString(color.getGreen())}</div>
       <div>Blue: {hexString(color.getBlue())}</div>

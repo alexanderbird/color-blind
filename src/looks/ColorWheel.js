@@ -1,9 +1,9 @@
 import './ColorWheel.css';
 
-export const ColorWheel = () => (
-  <svg class='color-wheel' viewbox="0 0 100 100">
-    { Array(12).fill().map(() => (
-        <circle cx="50" cy="50" r="25" />
+export const ColorWheel = ({ hue }) => (
+  <svg class='color-wheel' viewbox="0 0 120 120">
+    { Array(12).fill().map((_, i) => (
+        <circle cx="60" cy="60" r="25" class={ (i + 1) === hue.value ? 'color-wheel__color--active' : ''} />
       ))
     }
   </svg>

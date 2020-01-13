@@ -3,7 +3,7 @@
   --width-viewbox: 100;
   --radius-viewbox: 25;
   --radius-px: calc(var(--width-px) * (var(--radius-viewbox) / var(--width-viewbox)));
-  width: var(--width-px);
+  width: 120px;
   --color-red: #FF0000;
   --color-orange: #FF6600;
   --color-yellow: #FFFF00;
@@ -28,6 +28,10 @@
 
 .color-wheel circle {
   stroke-dashoffset: calc((var(--color-index) + 2.5) * var(--one-twelfth));
+}
+
+.color-wheel__color--active {
+  stroke-width: 75;
 }
 
 .color-wheel circle:nth-of-type(1)  { --color-index: 1;  stroke: var(--color-red);          }
