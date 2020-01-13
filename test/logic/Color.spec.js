@@ -96,22 +96,69 @@ describe('Color', () => {
   });
 
   describe('#getHue', () => {
-    [
-      ['FF0000', Hue.red],
-      ['FF6600', Hue.orange],
-      ['FFFF00', Hue.yellow],
-      ['66FF00', Hue.chartreuse],
-      ['00FF00', Hue.green],
-      ['00FF66', Hue.springGreen],
-      ['00FFFF', Hue.cyan],
-      ['0066FF', Hue.azure],
-      ['0000FF', Hue.blue],
-      ['6600FF', Hue.purple],
-      ['FF00FF', Hue.magenta],
-      ['FF0066', Hue.rose],
-    ].forEach(([ hex, hue ]) => it(`returns ${hue} for hex code ${hex}`, () => {
-      expect(Color.fromHexString(hex).getHue()).toEqual(hue);
-    }));
+    describe('for pure colors', () => {
+      [
+        ['FF0000', Hue.red],
+        ['FF6600', Hue.orange],
+        ['FFFF00', Hue.yellow],
+        ['66FF00', Hue.chartreuse],
+        ['00FF00', Hue.green],
+        ['00FF66', Hue.springGreen],
+        ['00FFFF', Hue.cyan],
+        ['0066FF', Hue.azure],
+        ['0000FF', Hue.blue],
+        ['6600FF', Hue.purple],
+        ['FF00FF', Hue.magenta],
+        ['FF0066', Hue.rose],
+      ].forEach(([ hex, hue ]) => it(`returns ${hue} for hex code ${hex}`, () => {
+        expect(Color.fromHexString(hex).getHue()).toEqual(hue);
+      }));
+    });
+
+    describe('for muted colors', () => {
+      [
+        ['331111', Hue.red],
+        ['332211', Hue.orange],
+        ['333311', Hue.yellow],
+        ['223311', Hue.chartreuse],
+        ['113311', Hue.green],
+        ['113322', Hue.springGreen],
+        ['113333', Hue.cyan],
+        ['112233', Hue.azure],
+        ['111133', Hue.blue],
+        ['221133', Hue.purple],
+        ['331133', Hue.magenta],
+        ['331122', Hue.rose],
+      ].forEach(([ hex, hue ]) => it(`returns ${hue} for hex code ${hex}`, () => {
+        expect(Color.fromHexString(hex).getHue()).toEqual(hue);
+      }));
+    });
+
+    describe('for colors with barely relevant second components', () => {
+      [
+        ['FF4000', Hue.orange],
+        ['40FF00', Hue.chartreuse],
+        ['00FF00', Hue.green],
+        ['00FF40', Hue.springGreen],
+        ['0040FF', Hue.azure],
+        ['4000FF', Hue.purple],
+        ['FF0040', Hue.rose],
+      ].forEach(([ hex, hue ]) => it(`returns ${hue} for hex code ${hex}`, () => {
+        expect(Color.fromHexString(hex).getHue()).toEqual(hue);
+      }));
+    });
+
+    describe('for colors with two insignificantly different lesser color components', () => {
+      [
+        ['FF0000', 'FF003F'],
+        ['FFFF00', 'FFC000'],
+      ].forEach(([ pure, close ]) => it(`returns the same thing for ${pure} as for ${close}`, () => {
+        window.YEAH = true;
+        const pureColor = Color.fromHexString(pure);
+        const closeColor = Color.fromHexString(close);
+        expect(closeColor.getHue()).toEqual(pureColor.getHue());
+      }));
+    });
   });
 
   describe('#getLightness', () => {

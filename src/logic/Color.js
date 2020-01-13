@@ -64,10 +64,13 @@ export class Color {
       { value: this.getGreen(), hue: Hue.green },
       { value: this.getBlue(), hue: Hue.blue }
     ].sort((x, y) => y.value - x.value);
-    if(first.value === second.value) {
+    const range = first.value - third.value;
+    const firstToSecond = first.value - second.value;
+    const secondToThird = second.value - third.value;
+    if((firstToSecond / range) < 0.25) {
       return first.hue.mix(second.hue);
     }
-    if(second.value === third.value) {
+    if((secondToThird / range) < 0.25) {
       return first.hue;
     }
     return first.hue.mix(second.hue).mix(first.hue);
