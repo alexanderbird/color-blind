@@ -1,3 +1,4 @@
+import './App.css';
 import { useRef, useState, useEffect } from 'preact/hooks';
 import { Color } from '../logic/Color';
 import { LineChart } from './LineChart';
@@ -19,18 +20,28 @@ export const App = () => {
   useEffect(randomColor, []);
 
   return (
-    <div>
-      <input ref={hexInput} onKeyUp={onChange} type='text' />
-      <button onClick={randomColor}>Random</button>
-      <LineChart 
-        red={color.getRed()}
-        green={color.getGreen()}
-        blue={color.getBlue()}
-        />
-      <ColorWheel hue={color.getHue()}/>
-      <div>Saturation: {color.getSaturation()}</div>
-      <div>Lightness: {color.getLightness()}</div>
-      <div>Hue: {color.getHue().name}</div>
+    <div class='app'>
+      <div class='app__input app__widget'>
+        <input ref={hexInput} onKeyUp={onChange} type='text' />
+        <button onClick={randomColor}>Random</button>
+      </div>
+      <div class='app__line-chart app__widget'>
+        <LineChart 
+          red={color.getRed()}
+          green={color.getGreen()}
+          blue={color.getBlue()}
+          />
+      </div>
+      <div class='app__hue app__widget'>
+        <div>{color.getHue().name}</div>
+        <ColorWheel hue={color.getHue()}/>
+      </div>
+      <div class='app__saturation app__widget'>
+        <div>Saturation: {color.getSaturation()}</div>
+      </div>
+      <div class='app__lightness app__widget'>
+        <div>Lightness: {color.getLightness()}</div>
+      </div>
     </div>
   );
 }

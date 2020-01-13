@@ -1,0 +1,40 @@
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'input      input      input'
+    'line-chart line-chart line-chart'
+    'saturation lightness  hue';
+  grid-gap: 30px;
+}
+
+.app__widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.app__widget > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app__input {
+  grid-area: input;
+}
+
+.app__line-chart {
+  grid-area: line-chart;
+}
+
+.app__saturation {
+  grid-area: saturation;
+}
+
+.app__lightness {
+  grid-area: lightness;
+}
+
+.app__hue {
+  grid-area: hue;
+}
