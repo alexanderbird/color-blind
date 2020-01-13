@@ -37,7 +37,7 @@ export const App = () => {
         <ColorWheel hue={color.getHue()}/>
       </div>
       <div class='app__saturation app__widget'>
-        <div>Saturation: {color.getSaturation()}</div>
+        <div>{color.getSaturation().toString()}</div>
       </div>
       <div class='app__lightness app__widget'>
         <div>{color.getLightness().toString()}</div>

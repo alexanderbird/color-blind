@@ -1,6 +1,7 @@
 import { Color } from '../../src/logic/Color';
 import { Hue } from '../../src/logic/Hue';
 import { Lightness } from '../../src/logic/Lightness';
+import { Saturation } from '../../src/logic/Saturation';
 
 describe('Color', () => {
   describe('.default', () => {
@@ -192,7 +193,11 @@ describe('Color', () => {
       ['FF00FF', 1],
       ['00FFFF', 1],
     ].forEach(([ hex, saturation ]) => it(`returns ${saturation} for hex code ${hex}`, () => {
-      expect(Color.fromHexString(hex).getSaturation()).toBeCloseTo(saturation, 1);
+      expect(Color.fromHexString(hex).getSaturation().value).toBeCloseTo(saturation, 1);
     }));
+
+    it('returns a Saturation object', () => {
+      expect(Color.fromHexString('FFFF99').getSaturation()).toEqual(new Saturation(0.4));
+    });
   });
 });
