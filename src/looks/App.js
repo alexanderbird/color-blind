@@ -30,6 +30,9 @@ export const App = () => {
           red={color.getRed()}
           green={color.getGreen()}
           blue={color.getBlue()}
+          max={color.getMax()}
+          min={color.getMin()}
+          average={color.getLightness().value}
           />
       </div>
       <div class='app__lightness app__widget'>

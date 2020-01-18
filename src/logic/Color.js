@@ -52,6 +52,14 @@ export class Color {
     return this._blue.intensity;
   }
 
+  getMax() {
+    return Math.max(...this._intensities);
+  }
+
+  getMin() {
+    return Math.min(...this._intensities);
+  }
+
   getLightness() {
     return new Lightness(average(this._intensities));
   }

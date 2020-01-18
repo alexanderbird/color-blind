@@ -200,4 +200,32 @@ describe('Color', () => {
       expect(Color.fromHexString('FFFF99').getSaturation()).toEqual(new Saturation(0.4));
     });
   });
+
+  describe('#getMax', () => {
+    it('returns the larges Color component value when red is the largest', () => {
+      expect(Color.fromHexString('995544').getMax()).toEqual(0.6); 
+    });
+
+    it('returns the larges Color component value when green is the largest', () => {
+      expect(Color.fromHexString('115544').getMax()).toEqual(1/3); 
+    });
+
+    it('returns the larges Color component value when blue is the largest', () => {
+      expect(Color.fromHexString('110033').getMax()).toEqual(0.2); 
+    });
+  });
+
+  describe('#getMin', () => {
+    it('returns the smallest Color component value when red is the smallest', () => {
+      expect(Color.fromHexString('339955').getMin()).toEqual(0.2); 
+    });
+
+    it('returns the smallest Color component value when green is the smallest', () => {
+      expect(Color.fromHexString('9955AA').getMin()).toEqual(1/3); 
+    });
+
+    it('returns the smallest Color component value when blue is the smallest', () => {
+      expect(Color.fromHexString('CCFF99').getMin()).toEqual(0.6); 
+    });
+  });
 });
