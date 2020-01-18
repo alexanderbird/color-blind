@@ -36,6 +36,11 @@ export const LineChart = ({ red, green, blue, max, min, average }) => {
         style="stroke-width: 1; stroke: gray; stroke-dasharray: 5"
         d={`M ${leftChartEdge} ${minLinePosition} L 200 ${minLinePosition}`}
         />
+
+
+      <text x="0" y={geometry.lineStartY + (0.1 * geometry.maxLineHeight)} style="text-anchor: start">Light</text>
+      <text x="0" y={geometry.lineStartY + (0.5 * geometry.maxLineHeight)} style="text-anchor: start">Middle</text>
+      <text x="0" y={geometry.lineStartY + (0.9 * geometry.maxLineHeight)} style="text-anchor: start">Dark</text>
       <path
         d={`M 0 ${middleLinePosition} L ${rightChartEdge} ${middleLinePosition}`}
         style="stroke-width: 1; stroke: gray; stroke-dasharray: 10 2"
